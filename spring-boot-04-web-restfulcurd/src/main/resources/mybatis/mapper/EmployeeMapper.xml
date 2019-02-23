@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--1.namespace跟接口绑定,绑定mapper的接口-->
+<mapper namespace="cn.myfreecloud.mapper.EmployeeMapper">
+    <!--
+        配置接口中需要实现的两个方法
+        public Employee getEmpById(Integer id);
+        public void insertEmp(Employee employee);
+    -->
+    <select id="getEmpById" resultType="cn.myfreecloud.entities.Employee">
+        SELECT *
+        FROM employee
+        WHERE EMPLOYEE_ID = #{id}
+    </select>
+
+    <insert id="insertEmp">
+        INSERT INTO employee (LAST_NAME, EMAIL, GENDER, DEPARTMENT_ID)
+        VALUES (#{lastName}, #{email}, #{gender}, #{departmentId})
+    </insert>
+</mapper>
