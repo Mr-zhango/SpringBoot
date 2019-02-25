@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--1.namespace跟接口绑定,绑定mapper的接口-->
+<mapper namespace="cn.myfreecloud.mapper.DepartmentMapper">
+    <!--
+        配置接口中需要实现的两个方法
+        public Employee getEmpById(Integer id);
+        public void insertEmp(Employee employee);
+    -->
+    <!--插入部门-->
+    <insert id="insertDept" parameterType="cn.myfreecloud.bean.Department">
+        INSERT INTO department (DEPARTMENT_NAME)
+        VALUES (#{departmentName})
+    </insert>
+    <!--删除部门-->
+    <delete id="deleteDet" parameterType="Integer">
+        DELETE
+        FROM department
+        WHERE
+                DEPARTMENT_ID = #{departmentId};
+    </delete>
+    <!--修改部门信息-->
+    <update id="updateDet" parameterType="cn.myfreecloud.bean.Department">
+        UPDATE department SET DEPARTMENT_NAME = #{departmentName}
+        WHERE DEPARTMENT_ID = #{departmentId}
+    </update>
+    <!--查询部门信息-->
+    <select id="getDeptById" resultType="cn.myfreecloud.bean.Department">
+        SELECT
+            *
+        FROM
+             department
+        WHERE
+              DEPARTMENT_ID = #{id}
+    </select>
+    <!--查询所有的部门信息-->
+    <select id="getAllDept">
+        SELECT
+               t.DEPARTMENT_ID,
+               t.DEPARTMENT_NAME
+        FROM
+             department t
+    </select>
+
+</mapper>

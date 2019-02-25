@@ -69,15 +69,15 @@
                     </thead>
                     <tbody>
                     <tr th:each="emp:${emps}">
-                        <td th:text="${emp.id}"></td>
+                        <td th:text="${emp.employeeId}"></td>
                         <td>[[${emp.lastName}]]</td>
                         <td th:text="${emp.email}"></td>
                         <td th:text="${emp.gender}==0?'女':'男'"></td>
-                        <td th:text="${emp.department.departmentName}"></td>
-                        <td th:text="${#dates.format(emp.birth, 'yyyy-MM-dd HH:mm')}"></td>
+                        <td th:text="${emp.departmentId}"></td>
+                        <td th:text="${#dates.format(emp.birthday, 'yyyy-MM-dd HH:mm')}"></td>
                         <td>
-                            <a class="btn btn-sm btn-primary" th:href="@{/emp/}+${emp.id}">编辑</a>
-                            <button th:attr="del_uri=@{/emp/}+${emp.id}" class="btn btn-sm btn-danger deleteBtn">删除</button>
+                            <a class="btn btn-sm btn-primary" th:href="@{/emp/}+${emp.employeeId}">编辑</a>
+                            <button th:attr="del_uri=@{/emp/}+${emp.employeeId}" class="btn btn-sm btn-danger deleteBtn">删除</button>
                         </td>
                     </tr>
                     </tbody>

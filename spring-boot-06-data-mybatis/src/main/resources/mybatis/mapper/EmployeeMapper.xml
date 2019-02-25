@@ -10,13 +10,38 @@
         public void insertEmp(Employee employee);
     -->
     <select id="getEmpById" resultType="cn.myfreecloud.bean.Employee">
-        SELECT *
-        FROM employee
-        WHERE EMPLOYEE_ID = #{id}
+        SELECT
+               t.EMPLOYEE_ID,
+               t.LAST_NAME,
+               t.EMAIL,
+               t.GENDER,
+               t.DEPARTMENT_ID,
+               t.BIRTHDAY
+        FROM
+             employee t
+        WHERE
+                EMPLOYEE_ID = #{id}
     </select>
 
     <insert id="insertEmp">
-        INSERT INTO employee (LAST_NAME, EMAIL, GENDER, DEPARTMENT_ID)
-        VALUES (#{lastName}, #{email}, #{gender}, #{departmentId})
+        INSERT INTO employee (LAST_NAME, EMAIL, GENDER, DEPARTMENT_ID, BIRTHDAY)
+        VALUES (#{lastName}, #{email}, #{gender}, #{departmentId}, #{birthday})
     </insert>
+
+    <insert id="deleteEmp">
+        DELETE
+        from employee
+        WHERE EMPLOYEE_ID = #{id}
+    </insert>
+
+    <update id="updateEmp">
+        UPDATE employee
+        SET LAST_NAME     = #{lastName},
+            EMAIL         = #{email},
+            GENDER        = #{gender},
+            DEPARTMENT_ID = #{departmentId},
+            BIRTHDAY      = #{birthday}
+        WHERE EMPLOYEE_ID = #{employeeId}
+    </update>
+
 </mapper>

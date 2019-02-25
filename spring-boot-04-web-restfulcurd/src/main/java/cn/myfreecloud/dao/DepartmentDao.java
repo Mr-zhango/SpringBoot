@@ -1,34 +1,62 @@
 package cn.myfreecloud.dao;
 
 import cn.myfreecloud.entities.Department;
+import cn.myfreecloud.mapper.DepartmentMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 
 @Repository
 public class DepartmentDao {
 
-	private static Map<Integer, Department> departments = null;
-	
-	static{
-		departments = new HashMap<Integer, Department>();
-		
-		departments.put(101, new Department(101, "D-AA"));
-		departments.put(102, new Department(102, "D-BB"));
-		departments.put(103, new Department(103, "D-CC"));
-		departments.put(104, new Department(104, "D-DD"));
-		departments.put(105, new Department(105, "D-EE"));
-	}
-	
-	public Collection<Department> getDepartments(){
-		return departments.values();
-	}
-	
-	public Department getDepartment(Integer id){
-		return departments.get(id);
-	}
-	
+    /**
+     * 注入员工
+     */
+    @Autowired
+    private DepartmentMapper departmentMapper;
+
+    /**
+     * 添加部门
+     * @param department
+     * @return
+     */
+    public Integer add(Department department){
+        return departmentMapper.insertDept(department);
+    }
+
+    /**
+     * 删除部门
+     * @param id
+     * @return
+     */
+    public void delete(Integer id){
+        departmentMapper.deleteDet(id);
+    }
+
+    /**
+     * 修改部门
+     * @return
+     */
+    public Department updateEmp(Department department){
+        return departmentMapper.updateDet(department);
+    }
+
+    /**
+     * 查询部门
+     * @param id
+     * @return
+     */
+    public Department get(Integer id){
+        return departmentMapper.getDept(id);
+    }
+
+    /**
+     * 查询所有的部门
+     * @return
+     */
+    public List<Department> getAll(){
+        return departmentMapper.getAllDept();
+    }
 }

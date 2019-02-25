@@ -1,21 +1,16 @@
 package cn.myfreecloud.mapper;
 
-import cn.myfreecloud.bean.Department;
+import cn.myfreecloud.entities.Department;
 
 import java.util.List;
 
-/**
- * 指定这是一个操作数据库的mapper
- */
 public interface DepartmentMapper {
-
     /**
      * 插入部门
      * @param department
      * @return
      */
-    public int insertDept(Department department);
-
+    public Integer insertDept(Department department);
 
     /**
      * 删除部门
@@ -24,26 +19,25 @@ public interface DepartmentMapper {
      */
     public void deleteDet(Integer id);
 
+
     /**
-     * 修改部门信息
-     * @param department
+     * 修改部门
+     * @param department 部门信息
      * @return
      */
     public Department updateDet(Department department);
 
-
     /**
-     * 查询部门信息
-     * @param id
+     * 查询部门
+     * @param id 员工id
      * @return
      */
-    public Department getDeptById(Integer id);
+    public Department getDept(Integer id);
 
     /**
-     * 查询部门信息
+     * 查询所有的部门
      * @param
      * @return
      */
     public List<Department> getAllDept();
-
 }

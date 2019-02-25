@@ -22,8 +22,10 @@ public class DeptController {
     @GetMapping("/dept/{id}")
     public Department getDepartment(@PathVariable("id") Integer id){
 
-        return departmentMapper.getDeptById(id);
+        Department department = departmentMapper.getDeptById(id);
+        return department;
     }
+
 
     /**
      * 插入部门

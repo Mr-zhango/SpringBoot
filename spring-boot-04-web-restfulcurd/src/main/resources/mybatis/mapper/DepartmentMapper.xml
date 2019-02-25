@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--1.namespace跟接口绑定,绑定mapper的接口-->
+<mapper namespace="cn.myfreecloud.mapper.DepartmentMapper">
+    <!--插入部门-->
+    <insert id="insertDept" parameterType="cn.myfreecloud.entities.Department">
+        INSERT INTO department (DEPARTMENT_NAME)
+        VALUES (#{departmentName})
+    </insert>
+    <!--删除部门-->
+    <delete id="deleteDet" parameterType="Integer">
+        DELETE
+              FROM department
+        WHERE
+              DEPARTMENT_ID = #{departmentId};
+    </delete>
+    <!--修改部门信息-->
+    <update id="updateDet" parameterType="cn.myfreecloud.entities.Department">
+        UPDATE department SET DEPARTMENT_NAME = #{departmentName}
+        WHERE DEPARTMENT_ID = #{departmentId}
+    </update>
+    <!--查询部门信息-->
+    <select id="getDept"  parameterType="Integer">
+        SELECT
+               t.DEPARTMENT_ID,
+               t.DEPARTMENT_NAME
+        FROM
+             department t
+        WHERE
+                t.DEPARTMENT_ID = #{departmentId}
+    </select>
+    <!--查询所有的部门信息-->
+    <select id="getAllDept" resultType="cn.myfreecloud.entities.Department">
+        SELECT
+               t.DEPARTMENT_ID,
+               t.DEPARTMENT_NAME
+        FROM
+             department t
+    </select>
+</mapper>
