@@ -1,6 +1,8 @@
 package cn.myfreecloud.controller;
 
+import cn.myfreecloud.entities.Department;
 import cn.myfreecloud.entities.Employee;
+import cn.myfreecloud.mapper.DepartmentMapper;
 import cn.myfreecloud.mapper.EmployeeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,12 +19,15 @@ public class EmployeeController {
     @Autowired
     EmployeeMapper employeeMapperr;
 
+    @Autowired
+    DepartmentMapper departmentMapper;
     //查询所有员工返回列表页面
     @GetMapping("/emps")
     public String  list(Model model){
         List<Employee> employees = employeeMapperr.getAllEmp();
 
         //放在请求域中
+        model.addAttribute("emps",employees);
         model.addAttribute("emps",employees);
         // thymeleaf默认就会拼串
         // classpath:/templates/xxxx.html
@@ -33,8 +38,8 @@ public class EmployeeController {
     @GetMapping("/emp")
     public String toAddPage(Model model){
         //来到添加页面,查出所有的部门，在页面显示
-        Collection<Employee> employees = employeeMapperr.getAllEmp();
-        model.addAttribute("depts",employees);
+        Collection<Department> depts = departmentMapper.getAllDept();
+        model.addAttribute("depts",depts);
         return "emp/add";
     }
 
@@ -59,7 +64,7 @@ public class EmployeeController {
         model.addAttribute("emp",employee);
 
         //页面要显示所有的部门列表
-        Collection<Employee> departments = employeeMapperr.getAllEmp();
+        Collection<Department> departments = departmentMapper.getAllDept();
         model.addAttribute("depts",departments);
         //回到修改页面(add是一个修改添加二合一的页面);
         return "emp/add";
@@ -79,7 +84,4 @@ public class EmployeeController {
         employeeMapperr.deleteEmpById(id);
         return "redirect:/emps";
     }
-
-
-
 }

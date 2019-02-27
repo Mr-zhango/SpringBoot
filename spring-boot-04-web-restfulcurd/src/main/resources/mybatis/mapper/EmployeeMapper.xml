@@ -11,11 +11,13 @@
     </insert>
 
     <!--删除员工-->
-    <select id="deleteEmpById" parameterType="Integer">
-        SELECT *
-        FROM employee
-        WHERE EMPLOYEE_ID = #{id}
-    </select>
+    <delete id="deleteEmpById" parameterType="Integer">
+        DELETE
+        FROM
+             employee
+        WHERE
+              EMPLOYEE_ID = #{id}
+    </delete>
 
     <!--修改员工-->
     <update id="updateEmpById">

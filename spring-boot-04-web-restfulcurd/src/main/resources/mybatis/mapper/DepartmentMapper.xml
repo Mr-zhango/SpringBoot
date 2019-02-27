@@ -17,12 +17,12 @@
               DEPARTMENT_ID = #{departmentId};
     </delete>
     <!--修改部门信息-->
-    <update id="updateDet" parameterType="cn.myfreecloud.entities.Department">
+    <update id="updateDet">
         UPDATE department SET DEPARTMENT_NAME = #{departmentName}
         WHERE DEPARTMENT_ID = #{departmentId}
     </update>
     <!--查询部门信息-->
-    <select id="getDept"  parameterType="Integer">
+    <select id="getDept"  parameterType="Integer" resultType="cn.myfreecloud.entities.Department">
         SELECT
                t.DEPARTMENT_ID,
                t.DEPARTMENT_NAME

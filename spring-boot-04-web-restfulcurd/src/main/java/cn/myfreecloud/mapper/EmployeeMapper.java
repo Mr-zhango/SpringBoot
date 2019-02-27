@@ -26,7 +26,7 @@ public interface EmployeeMapper {
      * @param employee
      * @return
      */
-    public Employee updateEmpById(Employee employee);
+    public void updateEmpById(Employee employee);
 
     /**
      * 查询员工方法

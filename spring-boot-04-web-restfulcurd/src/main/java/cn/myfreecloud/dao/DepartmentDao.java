@@ -39,8 +39,8 @@ public class DepartmentDao {
      * 修改部门
      * @return
      */
-    public Department updateEmp(Department department){
-        return departmentMapper.updateDet(department);
+    public void updateEmp(Department department){
+        departmentMapper.updateDet(department);
     }
 
     /**

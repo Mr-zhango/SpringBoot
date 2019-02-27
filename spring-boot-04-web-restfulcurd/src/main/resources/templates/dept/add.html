@@ -62,52 +62,15 @@
                 <!--使用选择器的方式,引入侧边栏-->
                 <div th:replace="commons/bar::#sidebar(activeUri='depts')"></div>
 				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-                    <!--a标签是超链接,本来就是get方式的请求-->
-                    <!--需要区分是员工修改页面还是员工添加页面.修改需要进行回显,添加就不需要回显了-->
-                    <!--rest风格的请求方式,是哟个post方式添加员工信息-->
-                    <form th:action="@{/emp}" method="post">
-                        <!--发送put请求修改员工数据-->
-                        <!--
-                        1、SpringMVC中配置HiddenHttpMethodFilter;（SpringBoot自动配置好的）
-                        2、页面创建一个post表单
-                        3、创建一个input项，name="_method";值就是我们指定的rest风格的请求方式
-                        -->
+                    <form th:action="@{/dept}" method="post">
                         <!--添加的请求方式参数--><!--th:if="${emp!=null}" 判断是修改的时候才起作用-->
-                        <input type="hidden" name="_method" value="put" th:if="${emp!=null}"/>
-                        <input type="hidden" name="employeeId" th:if="${emp!=null}" th:value="${emp.employeeId}">
-
-
+                        <input type="hidden" name="_method" value="put" th:if="${dept!=null}"/>
+                        <input type="hidden" name="departmentId" th:if="${dept!=null}" th:value="${dept.departmentId}">
                         <div class="form-group">
-                            <label>姓名</label>
-                            <input name="lastName" type="text" class="form-control" placeholder="zhangsan" th:value="${emp != null} ? ${emp.lastName}">
+                            <label>部门名称</label>
+                            <input name="departmentName" type="text" class="form-control" placeholder="请填写部门名字" th:value="${dept != null} ? ${dept.departmentName}">
                         </div>
-                        <div class="form-group">
-                            <label>电子邮箱</label>
-                            <input name="email" type="email" class="form-control" placeholder="zhangsan@atguigu.com" th:value="${emp != null} ? ${emp.email}">
-                        </div>
-                        <div class="form-group">
-                            <label>性别</label><br/>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender"  value="1" th:checked="${emp != null} ? ${emp.gender == 1}">
-                                <label class="form-check-label">男</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender"  value="0" th:checked="${emp != null} ? ${emp.gender == 0}">
-                                <label class="form-check-label">女</label>
-                            </div>
-
-                        </div>
-                        <div class="form-group">
-                            <label>部门</label>
-                            <select class="form-control" name="departmentId">
-                                <option name="departmentId" th:selected="${emp != null} ? ${dept.departmentId == emp.employeeId}" th:value="${dept.departmentId}" th:each="dept:${depts}" th:text="${dept.departmentName}">后台有值的话我就没有了</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>生日</label>
-                            <input name="birthday" type="text" class="form-control" placeholder="请输入您的生日" th:value="${emp != null} ? ${#dates.format(emp.birthday, 'yyyy-MM-dd HH:mm:ss')}">
-                        </div>
-                        <button type="submit" class="btn btn-primary" th:text="${emp != null} ?'修改' : '添加'">添加</button>
+                        <button type="submit" class="btn btn-primary" th:text="${dept != null} ?'修改' : '添加'">添加</button>
                     </form>
 				</main>
 			</div>

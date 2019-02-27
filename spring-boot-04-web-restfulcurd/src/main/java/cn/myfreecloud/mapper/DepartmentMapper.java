@@ -25,7 +25,7 @@ public interface DepartmentMapper {
      * @param department 部门信息
      * @return
      */
-    public Department updateDet(Department department);
+    public void updateDet(Department department);
 
     /**
      * 查询部门

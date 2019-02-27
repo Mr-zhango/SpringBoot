@@ -39,8 +39,8 @@ public class EmployeeDao{
      * 修改员工
      * @return
      */
-    public Employee updateEmp(Employee employee){
-        return employeeMapper.updateEmpById(employee);
+    public void updateEmp(Employee employee){
+        employeeMapper.updateEmpById(employee);
     }
 
     /**
