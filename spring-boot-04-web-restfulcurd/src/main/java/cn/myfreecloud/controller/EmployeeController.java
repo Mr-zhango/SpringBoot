@@ -84,4 +84,22 @@ public class EmployeeController {
         employeeDao.deleteEmpById(id);
         return "redirect:/emps";
     }
+
+
+
+    //来到jQueryDemo页面
+    @GetMapping("/jQueryDemo/demo01")
+    public String toDemo01(){
+        return "jQueryDemo/input";
+    }
+
+    //json测试
+    @GetMapping("/empJOSN/{id}")
+    @ResponseBody
+    public Object findEmpById(@PathVariable("id") Integer id){
+        Employee employee = employeeDao.getEmpById(id);
+        //回到修改页面(add是一个修改添加二合一的页面);
+        return employee;
+    }
+
 }
