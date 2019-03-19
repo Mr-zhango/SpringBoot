@@ -12,7 +12,7 @@ import java.util.List;
 public class DepartmentDao {
 
     /**
-     * 注入员工
+     * 注入部门mapper
      */
     @Autowired
     private DepartmentMapper departmentMapper;
@@ -22,7 +22,7 @@ public class DepartmentDao {
      * @param department
      * @return
      */
-    public Integer add(Department department){
+    public Integer insertDept(Department department){
         return departmentMapper.insertDept(department);
     }
 
@@ -31,7 +31,7 @@ public class DepartmentDao {
      * @param id
      * @return
      */
-    public void delete(Integer id){
+    public void deleteDet(Integer id){
         departmentMapper.deleteDet(id);
     }
 
@@ -39,7 +39,7 @@ public class DepartmentDao {
      * 修改部门
      * @return
      */
-    public void updateEmp(Department department){
+    public void updateDet(Department department){
         departmentMapper.updateDet(department);
     }
 
@@ -48,7 +48,7 @@ public class DepartmentDao {
      * @param id
      * @return
      */
-    public Department get(Integer id){
+    public Department getDept(Integer id){
         return departmentMapper.getDept(id);
     }
 
@@ -56,7 +56,7 @@ public class DepartmentDao {
      * 查询所有的部门
      * @return
      */
-    public List<Department> getAll(){
+    public List<Department> getAllDept(){
         return departmentMapper.getAllDept();
     }
 }

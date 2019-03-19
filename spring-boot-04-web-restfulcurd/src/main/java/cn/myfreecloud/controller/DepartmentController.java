@@ -1,7 +1,7 @@
 package cn.myfreecloud.controller;
 
+import cn.myfreecloud.dao.DepartmentDao;
 import cn.myfreecloud.entities.Department;
-import cn.myfreecloud.mapper.DepartmentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +13,7 @@ import java.util.List;
 public class DepartmentController {
 
     @Autowired
-    DepartmentMapper departmentMapper;
+    DepartmentDao departmentDao;
 
 
     //跳转到添加部门页面
@@ -26,7 +26,7 @@ public class DepartmentController {
     //查询所有部门返回列表页面
     @GetMapping("/depts")
     public Object  list(Model model){
-        List<Department> depts = departmentMapper.getAllDept();
+        List<Department> depts = departmentDao.getAllDept();
         model.addAttribute("depts",depts);
         return "dept/list";
     }
@@ -37,7 +37,7 @@ public class DepartmentController {
 
         System.out.println("保存的部门信息："+Department);
 
-        departmentMapper.insertDept(Department);
+        departmentDao.insertDept(Department);
         //重定向到部门类表页面
         return "redirect:/depts";
     }
@@ -45,14 +45,14 @@ public class DepartmentController {
     //删除部门
     @DeleteMapping("/dept/{id}")
     public String deleteDept(@PathVariable("id") Integer id){
-        departmentMapper.deleteDet(id);
+        departmentDao.deleteDet(id);
         return "redirect:/depts";
     }
 
     //来到修改页面，查出当前部门
     @GetMapping("/dept/{id}")
     public String toEditPage(@PathVariable("id") Integer id,Model model){
-        Department department = departmentMapper.getDept(id);
+        Department department = departmentDao.getDept(id);
         model.addAttribute("dept",department);
 
         //回到修改页面(add是一个修改添加二合一的页面);
@@ -63,7 +63,7 @@ public class DepartmentController {
     @PutMapping("/dept")
     public String updateDept(Department Department){
         System.out.println("修改的员工数据："+Department);
-        departmentMapper.updateDet(Department);
+        departmentDao.updateDet(Department);
         return "redirect:/depts";
     }
 

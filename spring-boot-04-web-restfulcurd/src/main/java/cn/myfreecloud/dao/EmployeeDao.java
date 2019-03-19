@@ -22,7 +22,7 @@ public class EmployeeDao{
      * @param employee  员工实体
      * @return
      */
-    public Integer add(Employee employee){
+    public Integer insertEmp(Employee employee){
         return employeeMapper.insertEmp(employee);
     }
 
@@ -31,7 +31,7 @@ public class EmployeeDao{
      * @param id
      * @return
      */
-    public void delete(Integer id){
+    public void deleteEmpById(Integer id){
         employeeMapper.deleteEmpById(id);
     }
 
@@ -39,7 +39,7 @@ public class EmployeeDao{
      * 修改员工
      * @return
      */
-    public void updateEmp(Employee employee){
+    public void updateEmpById(Employee employee){
         employeeMapper.updateEmpById(employee);
     }
 
@@ -48,7 +48,7 @@ public class EmployeeDao{
      * @param id
      * @return
      */
-    public Employee get(Integer id){
+    public Employee getEmpById(Integer id){
         return employeeMapper.getEmpById(id);
     }
 
@@ -56,7 +56,7 @@ public class EmployeeDao{
      * 查询所有的员工
      * @return
      */
-	public List<Employee> getAll(){
+	public List<Employee> getAllEmp(){
 		return employeeMapper.getAllEmp();
 	}
 
