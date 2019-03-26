@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * @author zhangyang
+ */
 @Controller
 public class EmployeeController {
 
@@ -21,7 +24,12 @@ public class EmployeeController {
 
     @Autowired
     DepartmentDao departmentDao;
-    //查询所有员工返回列表页面
+
+    /**
+     * 查询所有员工返回列表页面
+     * @param model
+     * @return
+     */
     @GetMapping("/emps")
     public String  list(Model model){
         List<Employee> employees = employeeDao.getAllEmp();
@@ -34,7 +42,11 @@ public class EmployeeController {
         return "emp/list";
     }
 
-    //来到员工添加页面
+    /**
+     * 来到员工添加页面
+     * @param model
+     * @return
+     */
     @GetMapping("/emp")
     public String toAddPage(Model model){
         //来到添加页面,查出所有的部门，在页面显示
@@ -44,7 +56,12 @@ public class EmployeeController {
     }
 
     //员工添加
-    //SpringMVC自动将请求参数和入参对象的属性进行一一绑定；要求请求参数的名字和javaBean入参的对象里面的属性名是一样的
+
+    /**
+     * SpringMVC自动将请求参数和入参对象的属性进行一一绑定；要求请求参数的名字和javaBean入参的对象里面的属性名是一样的
+     * @param employee
+     * @return
+     */
     @PostMapping("/emp")
     public String addEmp(Employee employee){
         //来到员工列表页面
@@ -57,7 +74,12 @@ public class EmployeeController {
         return "redirect:/emps";
     }
 
-    //来到修改页面，查出当前员工，在页面回显
+    /**
+     * 来到修改页面，查出当前员工，在页面回显
+     * @param id
+     * @param model
+     * @return
+     */
     @GetMapping("/emp/{id}")
     public String toEditPage(@PathVariable("id") Integer id,Model model){
         Employee employee = employeeDao.getEmpById(id);
@@ -70,7 +92,11 @@ public class EmployeeController {
         return "emp/add";
     }
 
-    //员工修改；需要提交员工id；
+    /**
+     * 员工修改；需要提交员工id；
+     * @param employee
+     * @return
+     */
     @PutMapping("/emp")
     public String updateEmployee(Employee employee){
         System.out.println("修改的员工数据："+employee);
@@ -78,7 +104,11 @@ public class EmployeeController {
         return "redirect:/emps";
     }
 
-    //员工删除
+    /**
+     * 员工删除
+     * @param id
+     * @return
+     */
     @DeleteMapping("/emp/{id}")
     public String deleteEmployee(@PathVariable("id") Integer id){
         employeeDao.deleteEmpById(id);
@@ -86,14 +116,20 @@ public class EmployeeController {
     }
 
 
-
-    //来到jQueryDemo页面
+    /**
+     * 来到jQueryDemo页面
+     * @return
+     */
     @GetMapping("/jQueryDemo/demo01")
     public String toDemo01(){
         return "jQueryDemo/input";
     }
 
-    //json测试
+    /**
+     * json测试
+     * @param id
+     * @return
+     */
     @GetMapping("/empJOSN/{id}")
     @ResponseBody
     public Object findEmpById(@PathVariable("id") Integer id){
