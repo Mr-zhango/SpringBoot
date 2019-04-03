@@ -19,13 +19,13 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        // super.addViewControllers(registry);
-        //浏览器发送 /atguigu 请求来到 success
+        // super.addViewControllers(registry);   浏览器发送 /atguigu 请求来到 success
         registry.addViewController("/atguigu").setViewName("success");
     }
 
     //所有的WebMvcConfigurerAdapter组件都会一起起作用
-    @Bean //将组件注册在容器
+    //将组件注册在容器
+    @Bean
     public WebMvcConfigurerAdapter webMvcConfigurerAdapter(){
         WebMvcConfigurerAdapter adapter = new WebMvcConfigurerAdapter() {
             @Override

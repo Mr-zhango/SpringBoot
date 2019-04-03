@@ -20,7 +20,7 @@ public class HelloController {
     @ResponseBody
     @RequestMapping("/hello")
     public  String hello(@RequestParam("user") String user){
-        if(user.equals("aaa")){
+        if("aaa".equals(user)){
             throw new UserNotExistException();
         }
         return "Hello World";

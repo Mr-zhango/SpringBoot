@@ -10,6 +10,7 @@ import java.util.Locale;
 
 /**
  * 可以在连接上携带区域信息,判断选中按钮高亮使用
+ * @author zhangyang
  */
 public class MyLocaleResolver implements LocaleResolver {
 

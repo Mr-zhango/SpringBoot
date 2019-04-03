@@ -33,11 +33,11 @@ public class DepartmentController {
 
     //添加部门
     @PostMapping("/dept")
-    public String deleteDept(Department Department){
+    public String deleteDept(Department department){
 
-        System.out.println("保存的部门信息："+Department);
+        System.out.println("保存的部门信息："+department);
 
-        departmentDao.insertDept(Department);
+        departmentDao.insertDept(department);
         //重定向到部门类表页面
         return "redirect:/depts";
     }
@@ -61,9 +61,9 @@ public class DepartmentController {
 
     //部门修改；需要提交部门id；
     @PutMapping("/dept")
-    public String updateDept(Department Department){
-        System.out.println("修改的员工数据："+Department);
-        departmentDao.updateDet(Department);
+    public String updateDept(Department department){
+        System.out.println("修改的员工数据："+department);
+        departmentDao.updateDet(department);
         return "redirect:/depts";
     }
 

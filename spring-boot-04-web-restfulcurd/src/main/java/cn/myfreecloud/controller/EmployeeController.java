@@ -130,7 +130,7 @@ public class EmployeeController {
      * @param id
      * @return
      */
-    @GetMapping("/empJOSN/{id}")
+    @GetMapping("/empJson/{id}")
     @ResponseBody
     public Object findEmpById(@PathVariable("id") Integer id){
         Employee employee = employeeDao.getEmpById(id);
