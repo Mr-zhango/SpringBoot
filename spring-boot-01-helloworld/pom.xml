@@ -7,19 +7,20 @@
     <groupId>cn.myfreecloud</groupId>
     <artifactId>spring-boot-01-helloworld</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+    <!--这是一个父项目,来真正管理SpringBoot项目的版本,项目的版本仲裁中心,没有在dependencies里面进行管理的,则需要我们指定具体的版本号-->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.9.RELEASE</version>
     </parent>
     <dependencies>
+        <!--starter-web 依赖 帮我们引入了web模块正常运行所依赖的组件-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
-    <!-- 这个插件，可以将应用打包成一个可执行的jar包；-->
+    <!-- 这个SpringBoot的maven插件，可以将应用打包成一个可执行的jar包；-->
     <build>
         <plugins>
             <plugin>

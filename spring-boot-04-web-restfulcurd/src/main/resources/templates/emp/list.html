@@ -74,7 +74,8 @@
                         <td th:text="${emp.email}"></td>
                         <td th:text="${emp.gender}==0?'女':'男'"></td>
                         <td th:text="${emp.departmentId}"></td>
-                        <td th:text="${#dates.format(emp.birthday, 'yyyy-MM-dd HH:mm')}"></td>
+                        <td th:text="${#dates.format(emp.birthday, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                        <!--<td th:text="${emp.birthday}"></td>-->
                         <td>
                             <a class="btn btn-sm btn-primary" th:href="@{/emp/}+${emp.employeeId}">编辑</a>
                             <!--deleteBtn给删除按钮绑定单击事件-->
