@@ -148,7 +148,7 @@ public class HelloController {
     </build>
 ```
 
-将这个应用打成jar包，直接使用java -jar的命令进行执行；
+将这个应用打成jar包，直接使用java -jar的命令进行执行,因为有内嵌的Tomcat；
 
 ## 5、Hello World探究
 
