@@ -1338,7 +1338,7 @@ logback.xml：直接就被日志框架识别了；
 
 可以按照slf4j的日志适配图，进行相关的切换；
 
-slf4j+log4j的方式； (不推荐,推荐使用logbak)
+slf4j+log4j的方式； (不推荐,推荐使用logback)
 
 ```xml
 <dependency>
