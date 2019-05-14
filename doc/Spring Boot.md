@@ -1253,7 +1253,8 @@ SpringBoot默认帮我们配置好了日志；
     		%logger{50} 表示logger名字最长50个字符，否则按照句点分割。 
     		%msg：日志消息，
     		%n是换行符
-        -->
+        	
+        
         %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n
 SpringBoot修改日志的默认配置
 
@@ -1337,7 +1338,7 @@ logback.xml：直接就被日志框架识别了；
 
 可以按照slf4j的日志适配图，进行相关的切换；
 
-slf4j+log4j的方式；
+slf4j+log4j的方式； (不推荐,推荐使用logbak)
 
 ```xml
 <dependency>
