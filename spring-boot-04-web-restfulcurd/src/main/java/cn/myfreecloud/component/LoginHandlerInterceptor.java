@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 登陆检查，
+ * 登陆检查拦截器
  * @author zhangyang
  */
 public class LoginHandlerInterceptor implements HandlerInterceptor {
@@ -26,6 +26,7 @@ public class LoginHandlerInterceptor implements HandlerInterceptor {
         if(user == null){
             //未登陆，返回登陆页面
             request.setAttribute("msg","没有权限请先登陆");
+            //请求转发到登录页面
             request.getRequestDispatcher("/index.html").forward(request,response);
             return false;
         }else{

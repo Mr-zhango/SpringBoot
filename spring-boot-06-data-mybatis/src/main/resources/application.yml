@@ -26,7 +26,7 @@ spring:
 
 #    配置sql文件的位置(在启动容器的时候就执行sql语句自建表)
 #    schema:
-#      - classpath:sql/department.sql
+#      - classpath:sql/dept.sql
 #      - classpath:sql/employee.sql
 
 #    配置mybatis

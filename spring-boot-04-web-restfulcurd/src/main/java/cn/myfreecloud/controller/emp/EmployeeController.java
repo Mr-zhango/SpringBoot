@@ -1,4 +1,4 @@
-package cn.myfreecloud.controller;
+package cn.myfreecloud.controller.emp;
 
 import cn.myfreecloud.dao.DepartmentDao;
 import cn.myfreecloud.dao.EmployeeDao;
@@ -35,7 +35,6 @@ public class EmployeeController {
         List<Employee> employees = employeeDao.getAllEmp();
 
         //放在请求域中
-        model.addAttribute("emps",employees);
         model.addAttribute("emps",employees);
         // thymeleaf默认就会拼串
         // classpath:/templates/xxxx.html

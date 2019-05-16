@@ -11,12 +11,15 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 //使用WebMvcConfigurerAdapter可以来扩展SpringMVC的功能
-//@EnableWebMvc   不要接管SpringMVC
+//@EnableWebMvc   不要接管SpringMVC 接管后所有的SpringMVC的配置就全部失效了
 @Configuration
 public class MyMvcConfig extends WebMvcConfigurerAdapter {
 
 
-
+    /**
+     * 使用SpringMVC自己扩展视图映射的写法
+     * @param registry
+     */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         // super.addViewControllers(registry);   浏览器发送 /atguigu 请求来到 success
@@ -32,10 +35,11 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
             public void addViewControllers(ViewControllerRegistry registry) {
                 registry.addViewController("/").setViewName("login");
                 registry.addViewController("/index.html").setViewName("login");
+                /**防止表单重复提交的中转页面**/
                 registry.addViewController("/main.html").setViewName("dashboard");
             }
 
-            //注册拦截器
+            //注册拦截器,进行登录检查
             @Override
             public void addInterceptors(InterceptorRegistry registry) {
                 //super.addInterceptors(registry);
@@ -50,6 +54,10 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
         return adapter;
     }
 
+    /**
+     * 注入我们的区域信息解析器
+     * @return
+     */
     @Bean
     public LocaleResolver localeResolver(){
 

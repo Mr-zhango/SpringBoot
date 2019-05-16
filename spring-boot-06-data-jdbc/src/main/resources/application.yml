@@ -25,5 +25,5 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
 #    默认执行sql的配置
 #    schema:
-#      - classpath:department.sql
+#      - classpath:dept.sql
 

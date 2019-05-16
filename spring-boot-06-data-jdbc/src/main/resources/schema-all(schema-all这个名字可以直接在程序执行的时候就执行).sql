@@ -16,7 +16,7 @@ Date: 2018-03-05 10:41:40
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for department
+-- Table structure for dept
 -- ----------------------------
 DROP TABLE IF EXISTS `department`;
 CREATE TABLE `department` (

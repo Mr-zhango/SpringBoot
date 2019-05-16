@@ -26,9 +26,14 @@ public class HelloController {
         return "Hello World";
     }
 
-    //查出用户数据，在页面展示
+    /**
+     * 查出用户数据，在页面展示
+     * @param map
+     * @return
+     */
     @RequestMapping("/success")
     public String success(Map<String,Object> map){
+        //calsspath://templates/success.html
         map.put("hello","<h1>你好</h1>");
         map.put("users",Arrays.asList("zhangsan","lisi","wangwu"));
         return "success";

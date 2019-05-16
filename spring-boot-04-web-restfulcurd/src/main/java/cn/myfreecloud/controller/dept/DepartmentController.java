@@ -1,4 +1,4 @@
-package cn.myfreecloud.controller;
+package cn.myfreecloud.controller.dept;
 
 import cn.myfreecloud.dao.DepartmentDao;
 import cn.myfreecloud.entities.Department;
