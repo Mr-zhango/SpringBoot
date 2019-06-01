@@ -16,6 +16,7 @@ public class MyServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //直接输出到浏览器
         resp.getWriter().write("Hello MyServlet");
     }
 }
