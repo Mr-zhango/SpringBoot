@@ -1,0 +1,5 @@
+### idea忽略文件配置
+/.idea/
+/*/target/
+/*/*.iml
+/*/*.readme
