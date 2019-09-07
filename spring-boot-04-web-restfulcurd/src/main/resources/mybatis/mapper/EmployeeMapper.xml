@@ -6,7 +6,7 @@
 <mapper namespace="cn.myfreecloud.mapper.EmployeeMapper">
     <!--插入员工-->
     <insert id="insertEmp">
-        INSERT INTO employee (LAST_NAME, EMAIL, GENDER, DEPARTMENT_ID, BIRTHDAY)
+        INSERT INTO t_employee (LAST_NAME, EMAIL, GENDER, DEPARTMENT_ID, BIRTHDAY)
         VALUES (#{lastName}, #{email}, #{gender}, #{departmentId}, #{birthday})
     </insert>
 
@@ -14,14 +14,14 @@
     <delete id="deleteEmpById" parameterType="Integer">
         DELETE
         FROM
-             employee
+             t_employee
         WHERE
               EMPLOYEE_ID = #{id}
     </delete>
 
     <!--修改员工-->
     <update id="updateEmpById">
-        UPDATE employee
+        UPDATE t_employee
         SET LAST_NAME     = #{lastName},
             EMAIL         = #{email},
             GENDER        = #{gender},
@@ -34,14 +34,14 @@
     <select id="getEmpById" parameterType="cn.myfreecloud.entities.Employee"
             resultType="cn.myfreecloud.entities.Employee">
         SELECT *
-        FROM employee
+        FROM t_employee
         WHERE EMPLOYEE_ID = #{id}
     </select>
 
     <!--查询所有员工-->
     <select id="getAllEmp" resultType="cn.myfreecloud.entities.Employee">
         SELECT *
-        FROM employee
+        FROM t_employee
     </select>
 
 </mapper>
